@@ -34,3 +34,10 @@
     flex-wrap: wrap;
     flex-direction: row;
 }
+
+@media (max-width: 600px) {
+    .container {
+        width:auto;
+        margin:0 10px 50px 10px
+    }
+  }
