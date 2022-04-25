@@ -20,7 +20,7 @@ const BreweriesContextProvider: React.FC<ProviderProps> = ({ children }) => {
     );
 };
 
-export const useData = () => {
+export const UseData = () => {
     const context = useContext(BreweriesContext);
     const { listBreweries } = context;
     return { listBreweries };
