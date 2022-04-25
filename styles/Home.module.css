@@ -55,6 +55,23 @@
   padding: 12px;
 }
 
+.btn {
+  width: 75px;
+  height: 40px;
+  border-radius: 4px;
+  border: none;
+}
+
+.btnEnabled {
+  width: 75px;
+  height: 40px;
+  border-radius: 4px;
+  border: none;
+  color: #fff;
+  background-color: #5D5FEF;
+  cursor: pointer;
+}
+
 @media (max-width: 600px) {
   .main img {
     margin-right: 0;

@@ -1,44 +1,55 @@
+import { useState, useEffect } from 'react'
+
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import { useRouter } from 'next/router'
-import { useState } from 'react'
+import Styles from '../styles/Home.module.css'
+import { useName } from '../src/context/beesContext'
+import changePage from '../src/Utils/changePage'
 
 
 const Home: NextPage = () => {
-  const router = useRouter()
   const [checked, setChecked] = useState<boolean>(false)
-  const [name, setName] = useState<string>('')
+  const { name, setName } = useName()
+  useEffect(() => {
+    if (localStorage.getItem('@User') != '') {
+      window.location.reload();
+    }
+  }, [])
 
-  const handleChange = (event: any) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(event.target.checked);
   };
 
-  const handleClick = (e: any) => {
-    e.preventDefault()
-    router.push('/dashboard')
-  }
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem('@User', name)
+    }
+  }, [name])
 
-  return (
-    <div className={styles.main}>
-      <form className={styles.form} id="form1">
+  return (     
+      <div className={Styles.main}>
+      <Head>
+        <title>Home</title>
+        <link rel="icon" type="image/png" href="./bee.png" />
+      </Head>
+        <form className={Styles.form} id="form1">
 
-        <div className={styles.textInfo}>
-          <abbr title="Por favor, digite seu nome completo" className={styles.text}><p>Please, enter your full name below</p></abbr>
-          <abbr title="Somente caracteres alfabéticos" className={styles.text}><p>Only alphabetical characters are accepted</p></abbr>
-        </div>
+          <div className={Styles.textInfo}>
+            <abbr title="Por favor, digite seu nome completo" className={Styles.text}><p>Please, enter your full name below</p></abbr>
+            <abbr title="Somente caracteres alfabéticos" className={Styles.text}><p>Only alphabetical characters are accepted</p></abbr>
+          </div>
 
-        <input type="text" placeholder='Full name' className={styles.enterName} required onChange={(e) => setName(e.target.value)} />
+          <input type="text" placeholder='Full name' className={Styles.enterName} required onChange={(e) => setName(e.target.value)} />
 
-        <div className={styles.check}>
-          <input type="checkbox" required onChange={handleChange} />
-          <abbr title="Você é maior de 18 anos?" className={styles.text}><p>Are you older than 18 years old?</p></abbr>
-        </div>
+          <div className={Styles.check}>
+            <input type="checkbox" required onChange={handleChange} />
+            <abbr title="Você é maior de 18 anos?" className={Styles.text}><p>Are you older than 18 years old?</p></abbr>
+          </div>
 
-        <button type='submit' disabled={(!checked || name === '')} form="form1" onClick={handleClick}>ENTER</button>
-      </form>
-      <img src="./bee.png" alt="bee" />
-    </div>
+          <button type='submit' disabled={(!checked || name === '')} form="form1" onClick={changePage('/dashboard')} className={!checked || name === '' ? Styles.btn : Styles.btnEnabled}>ENTER</button>
+        </form>
+        <img src="./bee.png" alt="bee" />
+      </div>
   )
 }
 
