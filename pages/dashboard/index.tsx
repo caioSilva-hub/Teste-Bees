@@ -4,11 +4,11 @@ import Header from '../../src/components/header'
 import styles from '../../styles/dashboard.module.css'
 import Card from '../../src/components/card'
 import Head from 'next/head'
-import { useData } from '../../src/context/breweriesContext'
+import { UseData } from '../../src/context/breweriesContext'
 import { breweriesProps } from '../../src/types/beesModel'
 
 export default function index() {
-  const { listBreweries } = useData();
+  const { listBreweries } = UseData();
 
   return (
     <>
