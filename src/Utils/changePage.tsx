@@ -1,8 +1,6 @@
-// import React from 'react'
 import { FormEvent } from 'react'
 
 import { useRouter } from 'next/router'
-
 
 export default function changePage(page: string) {
     const router = useRouter()
@@ -12,5 +10,4 @@ export default function changePage(page: string) {
         router.push(page)
     }
     return handleClick
-
 }
