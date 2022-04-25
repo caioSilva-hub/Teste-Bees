@@ -1,0 +1,28 @@
+.container {
+    height: 72px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    width: 1243px;
+    margin: 0 auto;
+}
+
+.container p {
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 45px;
+}
+
+.back {
+    display: flex;
+    align-items: center;
+}
+
+.back img {
+    margin-right: 10px;
+}
+
+.imgBack {
+    cursor: pointer;
+}

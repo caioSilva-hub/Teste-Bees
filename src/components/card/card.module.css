@@ -1,0 +1,36 @@
+.container {
+    border: 1px solid;
+    width: 382px;
+    border-radius: 4px;
+    margin: 0 20px 48px 10px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 23px;
+    background-color: #fff;
+}
+
+.deleteImg {
+    align-self: end;
+    margin: 14px 15px 0 0;
+    cursor: pointer;
+}
+
+.tittle {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 150%;
+    margin: 10px 0 0 0;
+}
+
+.adress {
+    line-height: 0.5;
+    margin-bottom: 15px;
+}
+
+.Tag {
+    width: 297px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
